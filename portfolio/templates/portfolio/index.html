@@ -8,5 +8,16 @@
 </head>
 <body>
     <h1>Portfolio Home Page</h1>
+    <div>
+
+        {% for x in project %}
+        <div class="container">
+            <h1>{{x.title}}</h1>
+            <p>{{ x.description }}</p>
+            <img src='{{ x.image.url }}' alt="" width="250"><br>
+            <a href="{{x.url}}">Link to full article</a>
+        </div>
+        {% endfor%}
+    </div>
 </body>
 </html>

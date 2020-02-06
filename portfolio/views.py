@@ -4,4 +4,6 @@ from .models import Project
 
 def home(req):
     projects = Project.objects.all()
-    return render(req, 'portfolio/index.html')
+    return render(req, 'portfolio/index.html', {
+        'project': projects
+    })
