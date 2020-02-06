@@ -15,7 +15,10 @@
             <h1>{{x.title}}</h1>
             <p>{{ x.description }}</p>
             <img src='{{ x.image.url }}' alt="" width="250"><br>
-            <a href="{{x.url}}">Link to full article</a>
+
+            {% if x.url %}
+            <a href="{{x.url}}" target="_blank">Link to full article</a>
+            {% endif %}
         </div>
         {% endfor%}
     </div>
