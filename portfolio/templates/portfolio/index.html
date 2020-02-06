@@ -1,4 +1,7 @@
+
 <!DOCTYPE html>
+
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +10,10 @@
     <title>Home Page View</title>
 </head>
 <body>
+
+    <img src="{% static 'portfolio/tempLogo.png' %}" alt="" width="150">
     <h1>Portfolio Home Page</h1>
     <div>
-
         {% for x in project %}
         <div class="container">
             <h1>{{x.title}}</h1>

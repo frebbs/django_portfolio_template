@@ -8,5 +8,18 @@
 </head>
 <body>
     <h1>This is the blog page view</h1>
+    <div>
+        {% for x in blog %}
+        <div class="container">
+            <h1>{{x.title}}</h1>
+            <p>{{ x.description }}</p>
+            <p>Date Created: {{x.date}} </p>
+
+            {% if x.url %}
+            <a href="{{x.url}}" target="_blank">Link to full article</a>
+            {% endif %}
+        </div>
+        {% endfor%}
+    </div>
 </body>
 </html>
