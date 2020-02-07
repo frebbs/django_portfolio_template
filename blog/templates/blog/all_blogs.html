@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>All Blogs Page</title>
-</head>
-<body>
-    <h1>This is the blog page view</h1>
-    <div>
+{% extends 'portfolio/base.html' %}
+{% block content %}
+    <div class="container">
 
-    <h2>{{ blog_counter }} blog{{ blog_counter|pluralize}} listed in total</h2>
+        <h2>{{ blog_counter }} blog{{ blog_counter|pluralize}} listed in total</h2>
         {% for x in blog %}
-        <div class="container">
+        <div class="blog-list">
             <a href="{% url 'blog:detail' x.id %}"><h1>{{x.title}}</h1></a>
             <p>{{ x.description|striptags|truncatechars:125 }}</p>
             <p>Date Created: {{x.date|date:'d M Y'}} </p>
@@ -23,5 +15,4 @@
         </div>
         {% endfor%}
     </div>
-</body>
-</html>
+{% endblock %}
