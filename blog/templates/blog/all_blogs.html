@@ -9,11 +9,13 @@
 <body>
     <h1>This is the blog page view</h1>
     <div>
+
+    <h2>{{ blog_counter }} blog{{ blog_counter|pluralize}} listed in total</h2>
         {% for x in blog %}
         <div class="container">
-            <h1>{{x.title}}</h1>
-            <p>{{ x.description }}</p>
-            <p>Date Created: {{x.date}} </p>
+            <a href="{% url 'blog:detail' x.id %}"><h1>{{x.title}}</h1></a>
+            <p>{{ x.description|striptags|truncatechars:125 }}</p>
+            <p>Date Created: {{x.date|date:'d M Y'}} </p>
 
             {% if x.url %}
             <a href="{{x.url}}" target="_blank">Link to full article</a>
